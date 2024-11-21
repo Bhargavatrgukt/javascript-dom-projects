@@ -1,0 +1,103 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-heading {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    font-weight: 800;
+    padding: 35px;
+}
+
+
+.progress-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    margin-top:50px;
+    margin-bottom: 0px;
+}
+
+/* Progress Line Styling */
+.progress-line {
+    background-color: #bfb8b8;
+    height: 3px;
+    width:400px; 
+} 
+
+.description{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+/* Individual Step Styling */
+.step {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: grey;
+    border: 2px solid black;
+    color:black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step1{
+    background-color:blue;
+    color: azure;
+}
+
+.Contact-Details{
+   transform: translateX(-60px);
+}
+
+.Shiping-Address{
+    transform: translateX(-60px);
+}
+
+.Payment{
+    transform: translateX(-20px);
+}
+.Delivered{
+    transform: translateX(50px);
+}
+
+.summary{
+   padding: 20px;
+   margin-top: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.sumarize{
+    text-align: center;
+    padding: 30px;
+}
+
+button{
+    padding:10px;
+    background-color: #bfb8b8;
+    color:black;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.previous-button{
+    color: grey;
+}

@@ -1,5 +1,5 @@
 let currentStep = 0; 
-const totalSteps = 5;
+const totalSteps = 4;
 
 const nxtButton = document.getElementById("next-button");
 const prevButton = document.getElementById("previous-button");
@@ -7,11 +7,11 @@ const prevButton = document.getElementById("previous-button");
 const sumarizeContetnt=document.querySelector(".sumarize");
 
 let contentObj={
-    1:"Add contact details for futher communication",
-    2:"Add shipping address for successfull delivery",
-    3:"Complete payment to complete the order",
-    4:"Ready to get delivered",
-    5:"Order Delivered Sucessfully 🎉"
+    0:"Add contact details for futher communication",
+    1:"Add shipping address for successfull delivery",
+    2:"Complete payment to complete the order",
+    3:"Ready to get delivered",
+    4:"Order Delivered Sucessfully 🎉"
 }
 
 

@@ -3,38 +3,41 @@ const totalSteps = 4;
 
 const nxtButton = document.getElementById("next-button");
 const prevButton = document.getElementById("previous-button");
+const sumarizeContent = document.querySelector(".sumarize");
 
-const sumarizeContetnt=document.querySelector(".sumarize");
-
-let contentObj={
-    0:"Add contact details for futher communication",
-    1:"Add shipping address for successfull delivery",
-    2:"Complete payment to complete the order",
-    3:"Ready to get delivered",
-    4:"Order Delivered Sucessfully 🎉"
-}
-
+let contentObj = {
+    0: "Add contact details for further communication",
+    1: "Add shipping address for successful delivery",
+    2: "Complete payment to complete the order",
+    3: "Ready to get delivered",
+    4: "Order Delivered Successfully 🎉"
+};
 
 function updateUI() {
+    // Update button states
     if (currentStep <= 0) {
-        prevButton.disabled = true; // Disable at the first step
+        prevButton.disabled = true;
+        prevButton.classList.add("disabled");
+        prevButton.classList.remove("active");
     } else {
-        prevButton.disabled = false; 
-        prevButton.style.color="Black";
-        sumarizeContetnt.textContent=contentObj[currentStep]
+        prevButton.disabled = false;
+        prevButton.classList.add("active");
+        prevButton.classList.remove("disabled");
     }
-    if (currentStep===totalSteps){
-        nxtButton.textContent="Finish";
-        nxtButton.disabled=true;
-        nxtButton.color="grey";
-     }else{
-        nxtButton.textContent="Next";
-        nxtButton.disabled=false;
-        nxtButton.color="black";
-     }
 
-    nxtButton.disabled = currentStep === totalSteps;
+    if (currentStep === totalSteps) {
+        nxtButton.textContent = "Finish";
+        nxtButton.disabled = true;
+        nxtButton.classList.add("disabled", "finish");
+        nxtButton.classList.remove("active");
+    } else {
+        nxtButton.textContent = "Next";
+        nxtButton.disabled = false;
+        nxtButton.classList.add("active");
+        nxtButton.classList.remove("disabled", "finish");
+    }
 
+    // Update step and progress line styles
     const steps = document.querySelectorAll(".step");
     const lines = document.querySelectorAll(".progress-line");
 
@@ -64,14 +67,14 @@ function updateUI() {
             line.classList.remove("line-completed");
         }
     });
-    
-}
 
+    // Update summary content
+    sumarizeContent.textContent = contentObj[currentStep];
+}
 
 nxtButton.addEventListener("click", () => {
     if (currentStep < totalSteps) {
         currentStep++;
-        console.log(currentStep);
         updateUI();
     }
 });
@@ -80,7 +83,8 @@ prevButton.addEventListener("click", () => {
     if (currentStep > 0) {
         currentStep--;
         updateUI();
-        console.log(currentStep);
     }
 });
 
+// Initialize the UI on load
+updateUI();

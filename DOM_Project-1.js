@@ -40,42 +40,47 @@ function updateUI() {
 
     steps.forEach((step, index) => {
         if (index + 1 <= currentStep) {
-            step.style.backgroundColor = "green";
-            step.style.color="white";
-            step.innerHTML = `<span>&#10003;</span>`; // Add the checkmark 
-
+            step.classList.add("success-step");
+            step.classList.remove("step-color", "step-current");
+            step.innerHTML = `<span>&#10003;</span>`; // Add the checkmark
         } else {
-            step.style.backgroundColor = "grey";
+            step.classList.add("step-color");
+            step.classList.remove("success-step", "step-current");
             step.textContent = `${index + 1}`; // Reset the number
         }
     });
-    currentStep < steps.length && (steps[currentStep].style.backgroundColor = "blue", steps[currentStep].style.color = "white");
+
+    if (currentStep < steps.length) {
+        steps[currentStep].classList.add("step-current");
+        steps[currentStep].classList.remove("step-color", "success-step");
+    }
 
     lines.forEach((line, index) => {
         if (index < currentStep - 1) {
-            line.style.backgroundColor = "green";
+            line.classList.add("line-completed");
+            line.classList.remove("line-default");
         } else {
-            line.style.backgroundColor = "#bfb8b8"; // Reset to default
+            line.classList.add("line-default");
+            line.classList.remove("line-completed");
         }
     });
+    
 }
 
-// Next button click event
-nxtButton.onclick = () => {
+
+nxtButton.addEventListener("click", () => {
     if (currentStep < totalSteps) {
         currentStep++;
-        console.log(currentStep)
+        console.log(currentStep);
         updateUI();
     }
-};
+});
 
-
-prevButton.onclick = () => {
+prevButton.addEventListener("click", () => {
     if (currentStep > 0) {
         currentStep--;
         updateUI();
-        console.log(currentStep)
+        console.log(currentStep);
     }
-};
-
+});
 
